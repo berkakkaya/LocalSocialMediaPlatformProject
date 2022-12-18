@@ -1,20 +1,19 @@
 package gonderi;
 
+import kullanici.Kullanici;
+
 public abstract class Gonderi {
     private int gonderiNumarasi;
-    private String paylasan;
+    private Kullanici paylasan;
 
-    public Gonderi(int gonderiNumarasi, String paylasan){
-        this.gonderiNumarasi = gonderiNumarasi;
+    public Gonderi(Kullanici paylasan){
         this.paylasan = paylasan;
     }
-
-     public abstract void Gonderi();
 
     public int getGonderiNumarasi() {
         return gonderiNumarasi;
     }
-    public String getPaylasan() {
+    public Kullanici getPaylasan() {
         return paylasan;
     }
     public abstract void yazdir();//abstract method olduğu için içi boş
