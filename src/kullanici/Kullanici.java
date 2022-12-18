@@ -14,5 +14,8 @@ public class Kullanici{
     public void setAdSoyad(String adSoyad) {
         this.adSoyad = adSoyad;
     }
-    
+
+    public String getePosta() {
+        return ePosta;
+    }
 }
