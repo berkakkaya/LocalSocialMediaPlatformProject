@@ -14,14 +14,11 @@ public class Kullanici{
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
-        this.sifre = sifre;
-        if(sifreYeniden != sifre){
-            try {
-                throw new SifreEslesmiyorException();
-            } catch (SifreEslesmiyorException e) {
-                throw new RuntimeException(e);
-            }
+        if(sifre != sifreYeniden){
+            throw new SifreEslesmiyorException();
         }
+        
+        this.sifre = sifre;
     }
 
     public String getAdSoyad() {
