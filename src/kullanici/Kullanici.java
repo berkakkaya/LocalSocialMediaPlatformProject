@@ -5,25 +5,24 @@ import hatalar.YanlisSifreException;
 import veritabani.Veritabani;
 
 public class Kullanici {
-    private final int kullaniciNumarasi = Veritabani.getNewKullaniciNumarasi(); //constructer üzerinden atama yapamıyorum, constructer üzerinden atama yapabilmem için sanırım final kaldırmak gerekli,
+    private final int kullaniciNumarasi;
     private String adSoyad;
     private String ePosta;
     private final String kullaniciAdi;
     private String sifre;
 
-    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden) throws SifreEslesmiyorException {
+    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden, int kullaniciNumarasi) throws SifreEslesmiyorException {
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
+        this.kullaniciNumarasi = Veritabani.getNewKullaniciNumarasi();
         if (!sifre.equals(sifreYeniden)) {
             throw new SifreEslesmiyorException();
         }
 
         this.sifre = sifre;
-        //kullaniciNumarasi= Veritabani.getNewKullaniciNumarasi(); //constructer üzerinden atama yapabilmem için sanırım final kaldırmak gerekli,
 
     }
-
     public int getKullaniciNumarasi() {
         return this.kullaniciNumarasi;
     }
