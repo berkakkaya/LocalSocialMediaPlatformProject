@@ -36,4 +36,8 @@ public class NormalGonderi extends Gonderi {
         return index != -1;
     }
 
+    protected int getBegenenSayisi() {
+        return this.begenenler.size();
+    }
+
 }
