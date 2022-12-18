@@ -2,9 +2,10 @@ package kullanici;
 
 import hatalar.SifreEslesmiyorException;
 import hatalar.YanlisSifreException;
+import veritabani.Veritabani;
 
 public class Kullanici {
-    private final int kullaniciNumarasi = 0; //Şimdilik 0'a eşitlendi error önlenmesi için
+    private final int kullaniciNumarasi = Veritabani.getNewKullaniciNumarasi(); //constructer üzerinden atama yapamıyorum, constructer üzerinden atama yapabilmem için sanırım final kaldırmak gerekli,
     private String adSoyad;
     private String ePosta;
     private final String kullaniciAdi;
@@ -19,6 +20,8 @@ public class Kullanici {
         }
 
         this.sifre = sifre;
+        //kullaniciNumarasi= Veritabani.getNewKullaniciNumarasi(); //constructer üzerinden atama yapabilmem için sanırım final kaldırmak gerekli,
+
     }
 
     public int getKullaniciNumarasi() {
