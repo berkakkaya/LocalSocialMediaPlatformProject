@@ -53,22 +53,14 @@ public class Kullanici{
     }
 
     public void sifre(String eskiSifre, String sifre, String sifreYeniden){
-        if(this.sifre != eskiSifre){
-            try {
-                throw new YanlisSifreException();
-            } catch (YanlisSifreException e) {
-                throw new RuntimeException(e);
-            }
-        }else{
-            if(sifre != sifreYeniden){
-                try {
-                    throw new SifreEslesmiyorException();
-                } catch (SifreEslesmiyorException e) {
-                    throw new RuntimeException(e);
-                }
-            }else{
-                this.sifre = sifre;
-            }
-        }
+       if(this.sifre != eskiSifre) {
+           throw new YanlisSifreException();
+       }
+       
+       if(sifre != sifreYeniden) {
+           throw new SifreEslesmiyorException();
+       }
+       
+       this.sifre = sifre;
     }
 }
