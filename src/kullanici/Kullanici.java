@@ -18,4 +18,8 @@ public class Kullanici{
     public String getePosta() {
         return ePosta;
     }
+
+    public void setePosta(String ePosta) {
+        this.ePosta = ePosta;
+    }
 }
