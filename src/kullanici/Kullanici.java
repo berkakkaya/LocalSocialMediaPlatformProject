@@ -29,7 +29,7 @@ public class Kullanici{
         this.adSoyad = adSoyad;
     }
 
-    public String getePosta() {
+    public String getEposta() {
         return ePosta;
     }
 
