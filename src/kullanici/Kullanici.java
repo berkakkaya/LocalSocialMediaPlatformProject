@@ -22,4 +22,8 @@ public class Kullanici{
     public void setePosta(String ePosta) {
         this.ePosta = ePosta;
     }
+
+    public String getKullaniciAdi() {
+        return kullaniciAdi;
+    }
 }
