@@ -49,4 +49,14 @@ public class Veritabani {
         }
     }
 
+    public static Kullanici getKullanici(String ePosta) throws KullaniciBulunamadiException {
+        for (Kullanici kullanici: kullanicilar) {
+            if (kullanici.getEposta().equals(ePosta)) {
+                return kullanici;
+            }
+        }
+
+        throw new KullaniciBulunamadiException();
+    }
+
 }
