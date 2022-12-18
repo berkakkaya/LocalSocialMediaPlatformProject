@@ -16,4 +16,16 @@ public class NormalGonderi extends Gonderi {
         this.yenidenPaylasmaSayisi = 0;
     }
 
+    public void begen(Kullanici kullanici) {
+        final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
+        final int index = this.begenenler.indexOf(kullaniciNumarasi);
+
+        if (index == -1) {
+            this.begenenler.add(kullaniciNumarasi);
+            return;
+        }
+
+        this.begenenler.remove(index);
+    }
+
 }
