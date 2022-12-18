@@ -33,7 +33,7 @@ public class Kullanici{
         return ePosta;
     }
 
-    public void setePosta(String ePosta) {
+    public void setEposta(String ePosta) {
         this.ePosta = ePosta;
     }
 
