@@ -44,4 +44,11 @@ public class NormalGonderi extends Gonderi {
         return this.yenidenPaylasmaSayisi;
     }
 
+    @Override
+    public void yazdir() {
+        System.out.println("[Gönderi]\n");
+        System.out.println(this.icerik + "\n");
+        System.out.println("[" + this.yenidenPaylasmaSayisi + " yeniden paylaşım, " + this.getBegenenSayisi() + " beğeni]");
+    }
+
 }
