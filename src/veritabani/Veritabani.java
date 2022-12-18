@@ -8,4 +8,8 @@ import java.util.ArrayList;
 public class Veritabani {
     private static final ArrayList<Gonderi> gonderiler = new ArrayList<>();
     private static final ArrayList<Kullanici> kullanicilar = new ArrayList<>();
+
+    public static void addGonderi(Gonderi gonderi) {
+        gonderiler.add(gonderi);
+    }
 }
