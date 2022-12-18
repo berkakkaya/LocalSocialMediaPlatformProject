@@ -24,4 +24,17 @@ public class Veritabani {
             throw new GonderiBulunamadiException();
         }
     }
+
+    public static ArrayList<Gonderi> getGonderi(Kullanici kullanici) {
+        ArrayList<Gonderi> dondurulecekGonderiler = new ArrayList<>();
+
+        for (Gonderi gonderi: gonderiler) {
+            if (gonderi.getPaylasan() == kullanici) {
+                dondurulecekGonderiler.add(gonderi);
+            }
+        }
+
+        return dondurulecekGonderiler;
+    }
+
 }
