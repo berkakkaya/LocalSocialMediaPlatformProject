@@ -16,4 +16,12 @@ public class Veritabani {
     public static void addKullanici(Kullanici kullanici) {
         kullanicilar.add(kullanici);
     }
+
+    public static Gonderi getGonderi(int gonderiNumarasi) throws GonderiBulunamadiException {
+        try {
+            return gonderiler.get(gonderiNumarasi);
+        } catch (IndexOutOfBoundsException e) {
+            throw new GonderiBulunamadiException();
+        }
+    }
 }
