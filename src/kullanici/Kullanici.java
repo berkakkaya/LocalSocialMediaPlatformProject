@@ -10,7 +10,7 @@ public class Kullanici{
     private final String kullaniciAdi;
     private String sifre;
 
-    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden ){
+    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden ) throws SifreEslesmiyorException {
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
@@ -49,7 +49,7 @@ public class Kullanici{
         }
     }
 
-    public void sifre(String eskiSifre, String sifre, String sifreYeniden){
+    public void sifre(String eskiSifre, String sifre, String sifreYeniden) throws YanlisSifreException, SifreEslesmiyorException {
        if(this.sifre != eskiSifre) {
            throw new YanlisSifreException();
        }
