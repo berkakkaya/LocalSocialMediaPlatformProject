@@ -6,5 +6,9 @@ public class Kullanici{
     private String ePosta;
     private final String kullaniciAdi;
     private String sifre;
+
+    public String getAdSoyad() {
+        return adSoyad;
+    }
     
 }
