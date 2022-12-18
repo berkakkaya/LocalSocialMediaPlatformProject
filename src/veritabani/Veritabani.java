@@ -59,4 +59,8 @@ public class Veritabani {
         throw new KullaniciBulunamadiException();
     }
 
+    public static int getNewGonderiNumarasi() {
+        return gonderiler.size();
+    }
+
 }
