@@ -21,6 +21,10 @@ public class Kullanici {
         this.sifre = sifre;
     }
 
+    public int getKullaniciNumarasi() {
+        return this.kullaniciNumarasi;
+    }
+
     public String getAdSoyad() {
         return adSoyad;
     }
