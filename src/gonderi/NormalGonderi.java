@@ -51,4 +51,7 @@ public class NormalGonderi extends Gonderi {
         System.out.println("[" + this.yenidenPaylasmaSayisi + " yeniden paylaşım, " + this.getBegenenSayisi() + " beğeni]");
     }
 
+    public void yenidenPaylas(Kullanici kullanici) {
+        // TODO: YenidenPaylasilmisGonderi sınıfı bitirilince buraya geri dön.
+    }
 }
