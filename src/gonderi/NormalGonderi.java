@@ -28,4 +28,12 @@ public class NormalGonderi extends Gonderi {
         this.begenenler.remove(index);
     }
 
+    public boolean checkBegen(Kullanici kullanici) {
+        final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
+        final int index = this.begenenler.indexOf(kullaniciNumarasi);
+
+        // Aşağıda eşit değildir operatörü üzerinden boolean elde ediliyor
+        return index != -1;
+    }
+
 }
