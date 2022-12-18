@@ -1,6 +1,8 @@
 package veritabani;
 
 import gonderi.Gonderi;
+import hatalar.GonderiBulunamadiException;
+import hatalar.KullaniciBulunamadiException;
 import kullanici.Kullanici;
 
 import java.util.ArrayList;
