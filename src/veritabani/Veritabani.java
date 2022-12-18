@@ -63,4 +63,7 @@ public class Veritabani {
         return gonderiler.size();
     }
 
+    public static int getNewKullaniciNumarasi() {
+        return kullanicilar.size();
+    }
 }
