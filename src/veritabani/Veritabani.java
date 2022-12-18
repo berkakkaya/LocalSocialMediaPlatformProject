@@ -12,4 +12,8 @@ public class Veritabani {
     public static void addGonderi(Gonderi gonderi) {
         gonderiler.add(gonderi);
     }
+
+    public static void addKullanici(Kullanici kullanici) {
+        kullanicilar.add(kullanici);
+    }
 }
