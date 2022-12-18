@@ -4,7 +4,7 @@ import hatalar.SifreEslesmiyorException;
 import hatalar.YanlisSifreException;
 
 public class Kullanici{
-    private final int kullaniciNumarasi;
+    private final int kullaniciNumarasi=0; //Şimdilik 0'a eşitlendi error önlenmesi için
     private String adSoyad;
     private String ePosta;
     private final String kullaniciAdi;
