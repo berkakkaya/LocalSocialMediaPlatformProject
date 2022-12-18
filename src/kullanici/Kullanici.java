@@ -10,5 +10,9 @@ public class Kullanici{
     public String getAdSoyad() {
         return adSoyad;
     }
+
+    public void setAdSoyad(String adSoyad) {
+        this.adSoyad = adSoyad;
+    }
     
 }
