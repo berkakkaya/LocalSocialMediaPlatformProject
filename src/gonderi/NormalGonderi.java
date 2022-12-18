@@ -40,4 +40,8 @@ public class NormalGonderi extends Gonderi {
         return this.begenenler.size();
     }
 
+    protected int getYenidenPaylasmaSayisi() {
+        return this.yenidenPaylasmaSayisi;
+    }
+
 }
