@@ -37,4 +37,16 @@ public class Veritabani {
         return dondurulecekGonderiler;
     }
 
+    public static ArrayList<Kullanici> getKullanici() {
+        return kullanicilar;
+    }
+
+    public static Kullanici getKullanici(int kullaniciNumarasi) throws KullaniciBulunamadiException {
+        try {
+            return kullanicilar.get(kullaniciNumarasi);
+        } catch (IndexOutOfBoundsException e) {
+            throw new KullaniciBulunamadiException();
+        }
+    }
+
 }
