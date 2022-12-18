@@ -11,5 +11,8 @@ public class YenidenPaylasilmisGonderi extends Gonderi {
     public YenidenPaylasilmisGonderi(NormalGonderi kaynakGonderi){
         this.kaynakGonderi = kaynakGonderi;
     }
-    
+
+    public void yazdir(){
+        System.out.println("[Yeniden Paylaşım]");
+    }
 }
