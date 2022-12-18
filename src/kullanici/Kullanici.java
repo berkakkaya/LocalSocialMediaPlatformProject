@@ -1,6 +1,7 @@
 package kullanici;
 
 import hatalar.SifreEslesmiyorException;
+import hatalar.YanlisSifreException;
 
 public class Kullanici{
     private final int kullaniciNumarasi;
@@ -15,7 +16,11 @@ public class Kullanici{
         this.kullaniciAdi = kullaniciAdi;
         this.sifre = sifre;
         if(sifreYeniden != sifre){
-           throw new SifreEslesmiyorException("Yazdığınız şifre, ilk yazdığınız şifre ile uyuşmuyor.");
+            try {
+                throw new SifreEslesmiyorException();
+            } catch (SifreEslesmiyorException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -37,5 +42,33 @@ public class Kullanici{
 
     public String getKullaniciAdi() {
         return kullaniciAdi;
+    }
+
+    public boolean sifre(String sifre){
+        if(this.sifre != sifre){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public void sifre(String eskiSifre, String sifre, String sifreYeniden){
+        if(this.sifre != eskiSifre){
+            try {
+                throw new YanlisSifreException();
+            } catch (YanlisSifreException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            if(sifre != sifreYeniden){
+                try {
+                    throw new SifreEslesmiyorException();
+                } catch (SifreEslesmiyorException e) {
+                    throw new RuntimeException(e);
+                }
+            }else{
+                this.sifre = sifre;
+            }
+        }
     }
 }
