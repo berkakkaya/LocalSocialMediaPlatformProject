@@ -2,9 +2,10 @@ package kullanici;
 
 import hatalar.SifreEslesmiyorException;
 import hatalar.YanlisSifreException;
+import veritabani.Veritabani;
 
 public class Kullanici {
-    private final int kullaniciNumarasi = 0; //Şimdilik 0'a eşitlendi error önlenmesi için
+    private final int kullaniciNumarasi;
     private String adSoyad;
     private String ePosta;
     private final String kullaniciAdi;
@@ -14,6 +15,7 @@ public class Kullanici {
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
+        this.kullaniciNumarasi = Veritabani.getNewKullaniciNumarasi();
         if (!sifre.equals(sifreYeniden)) {
             throw new SifreEslesmiyorException();
         }
