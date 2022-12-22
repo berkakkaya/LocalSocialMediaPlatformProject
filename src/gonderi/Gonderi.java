@@ -4,7 +4,7 @@ import kullanici.Kullanici;
 import veritabani.Veritabani;
 
 public abstract class Gonderi {
-    private int gonderiNumarasi;
+    private final int gonderiNumarasi;
     private final Kullanici paylasan;
 
     public Gonderi(Kullanici paylasan) {
