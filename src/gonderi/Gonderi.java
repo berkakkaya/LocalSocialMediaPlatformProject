@@ -1,12 +1,14 @@
 package gonderi;
 
 import kullanici.Kullanici;
+import veritabani.Veritabani;
 
 public abstract class Gonderi {
     private int gonderiNumarasi;
     private final Kullanici paylasan;
 
     public Gonderi(Kullanici paylasan) {
+        this.gonderiNumarasi = Veritabani.getNewGonderiNumarasi();
         this.paylasan = paylasan;
     }
 
