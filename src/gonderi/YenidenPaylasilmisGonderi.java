@@ -14,7 +14,7 @@ public class YenidenPaylasilmisGonderi extends Gonderi {
         System.out.println("[Yeniden Paylaşım]");
         System.out.println(super.getPaylasan().getKullaniciAdi() + " ( "+ super.getPaylasan().getEposta()+ " )");
         System.out.println("\n");
-        System.out.println(kaynakGonderi);
+        System.out.println(kaynakGonderi.getIcerik());
         System.out.println("\n");
         System.out.println("[" + kaynakGonderi.getYenidenPaylasmaSayisi() + " yeniden paylaşım, " + kaynakGonderi.getBegenenSayisi() + " beğeni]");
     }
