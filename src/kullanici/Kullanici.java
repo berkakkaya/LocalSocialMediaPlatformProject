@@ -11,7 +11,7 @@ public class Kullanici {
     private final String kullaniciAdi;
     private String sifre;
 
-    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden) throws SifreEslesmiyorException {
+    public Kullanici(String adSoyad, String ePosta, String kullaniciAdi, String sifre, String sifreYeniden, int kullaniciNumarasi) throws SifreEslesmiyorException {
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
@@ -21,8 +21,8 @@ public class Kullanici {
         }
 
         this.sifre = sifre;
-    }
 
+    }
     public int getKullaniciNumarasi() {
         return this.kullaniciNumarasi;
     }
