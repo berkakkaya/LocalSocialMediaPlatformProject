@@ -11,10 +11,6 @@ public class YenidenPaylasilmisGonderi extends Gonderi {
         this.kaynakGonderi = kaynakGonderi;
     }
 
-    public NormalGonderi getKaynakGonderi() {
-        return kaynakGonderi;
-    }
-
     public void yazdir() {
         System.out.println("[Yeniden Paylaşım]");
         System.out.println(super.getPaylasan().getAdSoyad() + " (" + super.getPaylasan().getKullaniciAdi() + ")");
