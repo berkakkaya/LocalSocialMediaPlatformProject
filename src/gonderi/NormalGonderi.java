@@ -1,6 +1,7 @@
 package gonderi;
 
 import kullanici.Kullanici;
+import veritabani.Veritabani;
 
 import java.util.ArrayList;
 
@@ -56,6 +57,13 @@ public class NormalGonderi extends Gonderi {
     }
 
     public void yenidenPaylas(Kullanici kullanici) {
-        // TODO: YenidenPaylasilmisGonderi sınıfı bitirilince buraya geri dön.
+        /*
+        * Create a new reshared post
+        * NOTE: When we use "this" as a parameter, we refer this class as a post.
+        * */
+        YenidenPaylasilmisGonderi gonderi = new YenidenPaylasilmisGonderi(kullanici, this);
+
+        // Add newly created reshared post to our database
+        Veritabani.addGonderi(gonderi);
     }
 }
