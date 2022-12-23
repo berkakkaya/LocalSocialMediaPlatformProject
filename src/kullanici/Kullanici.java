@@ -15,7 +15,7 @@ public class Kullanici {
         this.adSoyad = adSoyad;
         this.ePosta = ePosta;
         this.kullaniciAdi = kullaniciAdi;
-        this.kullaniciNumarasi = Veritabani.getNewKullaniciNumarasi();
+        this.kullaniciNumarasi = Veritabani.yeniKullaniciNumarasiAl();
         if (!sifre.equals(sifreYeniden)) {
             throw new SifreEslesmiyorException();
         }

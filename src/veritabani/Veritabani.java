@@ -69,11 +69,11 @@ public class Veritabani {
         throw new KullaniciBulunamadiException();
     }
 
-    public static int getNewGonderiNumarasi() {
+    public static int yeniGonderiNumarasiAl() {
         return sonrakiGonderiNumarasi;
     }
 
-    public static int getNewKullaniciNumarasi() {
+    public static int yeniKullaniciNumarasiAl() {
         return sonrakiKullaniciNumarasi;
     }
 }

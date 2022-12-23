@@ -8,7 +8,7 @@ public abstract class Gonderi {
     private final Kullanici paylasan;
 
     public Gonderi(Kullanici paylasan) {
-        this.gonderiNumarasi = Veritabani.getNewGonderiNumarasi();
+        this.gonderiNumarasi = Veritabani.yeniGonderiNumarasiAl();
         this.paylasan = paylasan;
     }
 
