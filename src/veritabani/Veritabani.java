@@ -11,6 +11,10 @@ public class Veritabani {
     private static final ArrayList<Gonderi> gonderiler = new ArrayList<>();
     private static final ArrayList<Kullanici> kullanicilar = new ArrayList<>();
 
+    public Veritabani() {
+        System.out.println("UYARI: Veritabani sınıfını direkt oluşturmayın.");
+    }
+
     public static void addGonderi(Gonderi gonderi) {
         gonderiler.add(gonderi);
     }
