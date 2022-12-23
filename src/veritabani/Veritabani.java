@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Veritabani {
     private static final ArrayList<Gonderi> gonderiler = new ArrayList<>();
     private static final ArrayList<Kullanici> kullanicilar = new ArrayList<>();
+    private static int sonrakiGonderiNumarasi = 0;
+    private static int sonrakiKullaniciNumarasi = 0;
 
     public Veritabani() {
         System.out.println("UYARI: Veritabani sınıfını direkt oluşturmayın.");
@@ -17,10 +19,12 @@ public class Veritabani {
 
     public static void addGonderi(Gonderi gonderi) {
         gonderiler.add(gonderi);
+        sonrakiGonderiNumarasi++;
     }
 
     public static void addKullanici(Kullanici kullanici) {
         kullanicilar.add(kullanici);
+        sonrakiKullaniciNumarasi++;
     }
 
     public static Gonderi getGonderi(int gonderiNumarasi) throws GonderiBulunamadiException {
@@ -66,10 +70,10 @@ public class Veritabani {
     }
 
     public static int getNewGonderiNumarasi() {
-        return gonderiler.size();
+        return sonrakiGonderiNumarasi;
     }
 
     public static int getNewKullaniciNumarasi() {
-        return kullanicilar.size();
+        return sonrakiKullaniciNumarasi;
     }
 }
