@@ -65,5 +65,8 @@ public class NormalGonderi extends Gonderi {
 
         // Add newly created reshared post to our database
         Veritabani.addGonderi(gonderi);
+
+        // Increase our repost counter by 1
+        this.yenidenPaylasmaSayisi++;
     }
 }
