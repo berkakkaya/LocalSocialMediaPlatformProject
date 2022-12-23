@@ -21,4 +21,12 @@ public abstract class Gonderi {
     }
 
     public abstract void yazdir();
+
+    public abstract void begen(Kullanici kullanici);
+
+    public abstract boolean checkBegen(Kullanici kullanici);
+
+    protected abstract int getBegenenSayisi();
+
+    public abstract void yenidenPaylas(Kullanici kullanici);
 }

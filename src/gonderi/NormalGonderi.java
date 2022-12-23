@@ -17,6 +17,7 @@ public class NormalGonderi extends Gonderi {
         this.yenidenPaylasmaSayisi = 0;
     }
 
+    @Override
     public void begen(Kullanici kullanici) {
         final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
         final int index = this.begenenler.indexOf(kullaniciNumarasi);
@@ -29,6 +30,7 @@ public class NormalGonderi extends Gonderi {
         this.begenenler.remove(index);
     }
 
+    @Override
     public boolean checkBegen(Kullanici kullanici) {
         final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
         final int index = this.begenenler.indexOf(kullaniciNumarasi);
@@ -37,6 +39,7 @@ public class NormalGonderi extends Gonderi {
         return index != -1;
     }
 
+    @Override
     protected int getBegenenSayisi() {
         return this.begenenler.size();
     }
@@ -56,6 +59,7 @@ public class NormalGonderi extends Gonderi {
         System.out.println("[" + this.yenidenPaylasmaSayisi + " yeniden paylaşım, " + this.getBegenenSayisi() + " beğeni]");
     }
 
+    @Override
     public void yenidenPaylas(Kullanici kullanici) {
         /*
         * Create a new reshared post

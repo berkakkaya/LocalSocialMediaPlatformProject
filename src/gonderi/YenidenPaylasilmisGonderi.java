@@ -23,4 +23,24 @@ public class YenidenPaylasilmisGonderi extends Gonderi {
         System.out.print("\n");
         System.out.println("[" + kaynakGonderi.getYenidenPaylasmaSayisi() + " yeniden paylaşım, " + kaynakGonderi.getBegenenSayisi() + " beğeni]");
     }
+
+    @Override
+    public void begen(Kullanici kullanici) {
+        this.kaynakGonderi.begen(kullanici);
+    }
+
+    @Override
+    public boolean checkBegen(Kullanici kullanici) {
+        return this.kaynakGonderi.checkBegen(kullanici);
+    }
+
+    @Override
+    protected int getBegenenSayisi() {
+        return this.kaynakGonderi.getBegenenSayisi();
+    }
+
+    @Override
+    public void yenidenPaylas(Kullanici kullanici) {
+        this.kaynakGonderi.yenidenPaylas(kullanici);
+    }
 }
