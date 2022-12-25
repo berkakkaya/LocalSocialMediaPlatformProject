@@ -17,6 +17,11 @@ public class Ekranlar {
         }
 
         private void cikisYap() {
+            public void cikisYap(){
+                System.out.println("Çıkış yapılıyor.");
+                scanner.close();
+                System.exit(0);
+            }
 
         }
 
@@ -37,6 +42,7 @@ public class Ekranlar {
     }
 
     static public class GirisSonrasi {
+
         private final Kullanici kullanici;
         private final Scanner scanner;
 
@@ -56,6 +62,7 @@ public class Ekranlar {
         private void kullaniciBilgileriniDegistir() {
 
         }
+
 
         private int menuYazdir() {
             // TODO: Başlarken buradaki kodu silin.
