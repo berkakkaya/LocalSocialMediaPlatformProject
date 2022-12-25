@@ -38,7 +38,7 @@ public class Veritabani {
     public static ArrayList<Gonderi> getGonderi(Kullanici kullanici) {
         ArrayList<Gonderi> dondurulecekGonderiler = new ArrayList<>();
 
-        for (Gonderi gonderi: gonderiler) {
+        for (Gonderi gonderi: gonderiler){
             if (gonderi.getPaylasan() == kullanici) {
                 dondurulecekGonderiler.add(gonderi);
             }
@@ -46,7 +46,6 @@ public class Veritabani {
 
         return dondurulecekGonderiler;
     }
-
     public static ArrayList<Kullanici> getKullanici() {
         return kullanicilar;
     }

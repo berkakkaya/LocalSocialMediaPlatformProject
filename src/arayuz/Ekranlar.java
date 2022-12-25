@@ -2,12 +2,14 @@ package arayuz;
 
 import gonderi.Gonderi;
 import gonderi.NormalGonderi;
+import hatalar.GonderiBulunamadiException;
 import hatalar.KullaniciBulunamadiException;
 import hatalar.SifreEslesmiyorException;
 import kullanici.Kullanici;
 
 import veritabani.Veritabani;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ekranlar {
@@ -202,7 +204,82 @@ public class Ekranlar {
 
         }
 
-        private void profilSayfasi(int kullaniciNumarasi) {
+        private void profilSayfasi(int kullaniciNumarasi) throws GonderiBulunamadiException {
+            ArrayList<Gonderi> gonderiler = Veritabani.getGonderi(kullanici);
+
+
+            final int toplamGonderiSayisi = gonderiler.size();
+            int suAnkiGonderiNumaramasi = 1;
+            Gonderi anlikGonderi;
+
+            while (true) {
+                System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + ")");
+                System.out.println();
+
+                System.out.println(toplamGonderiSayisi + " gönderiden " + suAnkiGonderiNumaramasi + ". gönderi");
+                System.out.println();
+
+                anlikGonderi = gonderiler.get(suAnkiGonderiNumaramasi - 1);
+
+                anlikGonderi.yazdir();
+
+                boolean oncekiGonderiButonuAktif, sonrakiGonderiButonuAktif;
+
+                if (suAnkiGonderiNumaramasi != 1) {
+                    System.out.println("Önceki gönderi: [j]");
+                    oncekiGonderiButonuAktif = true;
+                } else {
+                    oncekiGonderiButonuAktif = false;
+                }
+
+                if (suAnkiGonderiNumaramasi != toplamGonderiSayisi){
+                    System.out.println("Sonraki gönderi: [k]");
+                    sonrakiGonderiButonuAktif = true;
+                } else {
+                    sonrakiGonderiButonuAktif = false;
+                }
+
+                if (anlikGonderi.checkBegen(this.kullanici)) {
+                    System.out.println("Gönderiyi beğen: [e]");
+                } else {
+                    System.out.println("Gönderiyi beğenmekten vazgeç: [e]");
+                }
+
+                System.out.println("Gönderiyi yeniden paylaş: [r]");
+                System.out.println("Profil görünümünden çık: [q]");
+
+                System.out.print("İlgili harfi tuşlayıp [ENTER] tuşuna basınız: ");
+                String profilSecim = scanner.nextLine();
+
+                /*
+                * Önceki gönderi: [j]
+                Sonraki gönderi: [k]
+                Gönderiyi beğen: [e]
+                Gönderiyi yeniden paylaş: [r]
+                Profil görünümünden çık: [q]
+                * */
+
+                if (profilSecim.equals("q")){
+                    return;
+                }
+
+                if (profilSecim.equals("r")){
+                    anlikGonderi.yenidenPaylas(kullanici);
+                }
+
+                if(profilSecim.equals("e")){
+                    anlikGonderi.begen(kullanici);
+                }
+
+                if(sonrakiGonderiButonuAktif && profilSecim.equals("k")) {
+                    suAnkiGonderiNumaramasi++;
+                }
+
+                if(oncekiGonderiButonuAktif && profilSecim.equals("j")) {
+                    suAnkiGonderiNumaramasi--;
+                }
+            }
+
 
         }
 
