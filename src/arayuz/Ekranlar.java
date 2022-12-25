@@ -134,6 +134,8 @@ public class Ekranlar {
 
                 if (bilgiDegistirmeOnaylama.equals("e") || bilgiDegistirmeOnaylama.equals("E")) {
                     System.out.println("Yeni bilgileriniz kaydedildi.");
+                    kullanici.setEposta(yeniEposta);
+                    kullanici.setAdSoyad(yeniAdSoyad);
                 } else if (bilgiDegistirmeOnaylama.equals("h") || bilgiDegistirmeOnaylama.equals("H")) {
                     System.out.println("Bilgiler kaydedilmedi.");
                 } else {
