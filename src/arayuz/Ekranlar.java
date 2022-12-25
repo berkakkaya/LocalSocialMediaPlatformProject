@@ -1,5 +1,7 @@
 package arayuz;
 
+import gonderi.Gonderi;
+import gonderi.NormalGonderi;
 import hatalar.KullaniciBulunamadiException;
 import hatalar.SifreEslesmiyorException;
 import kullanici.Kullanici;
@@ -95,6 +97,31 @@ public class Ekranlar {
 
         private void cikisYap() {
 
+        }
+
+        private void gonderiPaylas() {
+            String icerik, gondermeOnayi;
+            NormalGonderi gonderi;
+
+            System.out.println("Yeni gönderi paylaşacaksınız.");
+            System.out.println();
+            System.out.println("Lütfen yazmak istediğiniz şeyi yazın ve bitirince ENTER tuşuna basın.");
+            System.out.println();
+
+            icerik = this.scanner.nextLine();
+
+            System.out.print("Gönderiyi paylaşmak istediğinize emin misiniz (e/h): ");
+            gondermeOnayi = this.scanner.nextLine();
+
+            if (gondermeOnayi.equals("e")) {
+                gonderi = new NormalGonderi(this.kullanici, icerik);
+                Veritabani.addGonderi(gonderi);
+
+                System.out.println("Gönderi paylaşıldı.");
+                return;
+            }
+
+            System.out.println("Gönderi paylaşılmadı.");
         }
 
         private void kullaniciBilgileriniDegistir() {
