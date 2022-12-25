@@ -1,5 +1,6 @@
 package arayuz;
 
+import hatalar.KullaniciBulunamadiException;
 import kullanici.Kullanici;
 import veritabani.Veritabani;
 
@@ -15,16 +16,45 @@ public class Ekranlar {
         }
 
         public void calistir() {   //giriş yapma, kayıt olma olayları ele alacak
+            boolean cikisYap = false;
             int secim = menuYazdir();
-            if (secim == 1) {
-                girisYap(); //FIXME: Burada giriş sonrası ekrana yönlendirme de yapılacak
-            } else if (secim == 2) {
-                kayitOl(); //FIXME: Burada giriş sonrası ekrana yönlendirme de yapılacak
-            } else if (secim == 3) {
-                cikisYap();
-            } else {
-                System.out.println("Lütfen seçeneklerdeki rakamlardan birini girin");
-            }
+            int kullaniciId;
+            GirisSonrasi girisSonrasi;
+            Kullanici kullanici;
+
+            do {
+                if (secim == 1) { // Giriş yap
+                    kullaniciId = girisYap();
+                    if (kullaniciId != -1) {
+                        try {
+                            kullanici = Veritabani.getKullanici(kullaniciId);
+                        } catch (KullaniciBulunamadiException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        girisSonrasi = new GirisSonrasi(kullanici);
+                        girisSonrasi.calistir();
+                    }
+                } else if (secim == 2) { // Kayıt ol
+                    kullaniciId = kayitOl();
+                    if (kullaniciId != -1) {
+                        try {
+                            kullanici = Veritabani.getKullanici(kullaniciId);
+                        } catch (KullaniciBulunamadiException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        girisSonrasi = new GirisSonrasi(kullanici);
+                        girisSonrasi.calistir();
+                    }
+                } else if (secim == 3) { // Uygulamadan çık
+                    cikisYap = true;
+                } else {
+                    System.out.println("Lütfen seçeneklerdeki rakamlardan birini girin.");
+                }
+            } while (cikisYap);
+
+            this.cikisYap();
         }
 
         private void cikisYap() {
@@ -87,7 +117,7 @@ public class Ekranlar {
             System.out.println("[5] Şifreyi değiştir");
             System.out.println("[6] Çıkış yap");
             System.out.println();
-            System.out.println("Seçiminiz: "); //FIXME: Burada print kullanılması gerek
+            System.out.print("Seçiminiz: "); //FIXME: Burada print kullanılması gerek-ok
             int secim = this.scanner.nextInt();
             return secim;
         }
