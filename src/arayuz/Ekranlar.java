@@ -1,6 +1,8 @@
 package arayuz;
 
 import hatalar.KullaniciBulunamadiException;
+import hatalar.SifreEslesmiyorException;
+import hatalar.YanlisSifreException;
 import kullanici.Kullanici;
 import veritabani.Veritabani;
 
@@ -186,16 +188,22 @@ public class Ekranlar {
         }
 
         private void sifreDegistir() {
-            //FIXME: Fonksiyonun dokümantasyonunu tekrardan okuyarak burayı düzenle
+            String eskiSifre, yeniSifre, yeniSifreTekrardan;
 
             System.out.print("Eski şifreniz: ");
-            String eskiSifre = this.scanner.next();
+            eskiSifre = this.scanner.nextLine();
             System.out.print("Yeni şifreniz: ");
-            String yeniSifre = this.scanner.next();
+            yeniSifre = this.scanner.nextLine();
             System.out.print("Yeni şifreniz (tekrardan): ");
-            String yeniSifreT = this.scanner.next();
-            Kullanici kullanici = new Kullanici(); //FIXME: mevcut kullanıcının verilerini değiştir, yeni kullanıcı yaratma
-            kullanici.sifre(eskiSifre, yeniSifre, yeniSifreT);
+            yeniSifreTekrardan = this.scanner.nextLine();
+
+            try {
+                kullanici.sifre(eskiSifre, yeniSifre, yeniSifreTekrardan);
+            } catch (YanlisSifreException e) {
+                System.out.println("Eski şifrenizi yanlış girdiniz. Lütfen kontrol edip yeniden deneyiniz.");
+            } catch (SifreEslesmiyorException e) {
+                System.out.println("Girdiğiniz şifreler birbiriyle uyuşmuyor. Lütfen kontrol edip yeniden deneyiniz.");
+            }
         }
     }
 }
