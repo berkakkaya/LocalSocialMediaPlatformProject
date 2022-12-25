@@ -1,6 +1,10 @@
 package arayuz;
 
+import hatalar.KullaniciBulunamadiException;
+import hatalar.SifreEslesmiyorException;
 import kullanici.Kullanici;
+
+import veritabani.Veritabani;
 
 import java.util.Scanner;
 
@@ -17,11 +21,9 @@ public class Ekranlar {
         }
 
         private void cikisYap() {
-            public void cikisYap(){
                 System.out.println("Çıkış yapılıyor.");
                 scanner.close();
                 System.exit(0);
-            }
 
         }
 
@@ -31,8 +33,44 @@ public class Ekranlar {
         }
 
         private int kayitOl() {
-            // TODO: Başlarken buradaki kodu silin.
-            return 0;
+            System.out.println("Kayıt olma seçeneğini seçtiniz.");
+            System.out.println();
+            System.out.print("Adınız ve soyadınız: ");
+            String adSoyad = scanner.nextLine();
+            System.out.print("E-posta adresiniz: ");
+            String ePosta = scanner.nextLine();
+            System.out.println();
+            System.out.println("Kendinize bir kullanıcı adı seçiniz. Bu ad seçildikten sonra bir daha değiştirilemez.");
+            System.out.print("Kullanıcı adınız: @");
+            String kullaniciAdi = scanner.nextLine();
+            System.out.println();
+            System.out.print("Şifreniz: ");
+            String sifre = scanner.nextLine();
+            System.out.print("Şifreniz (tekrardan): ");
+            String sifreYeniden = scanner.nextLine();
+
+            boolean kullaniciBulundu;
+            try {
+                Veritabani.getKullanici(ePosta);
+                kullaniciBulundu = true;
+            } catch (KullaniciBulunamadiException e) {
+                kullaniciBulundu = false;
+            }
+
+            if (kullaniciBulundu == true){
+                System.out.println("Platformda aynı e-postaya sahip bir kullanıcı var. Lütfen e-postanızı kontrol edip yeniden deneyiniz.");
+                return -1;
+            }
+            try {
+                Kullanici kullanici = new Kullanici(adSoyad, ePosta, kullaniciAdi, sifre, sifreYeniden);
+                Veritabani.addKullanici(kullanici);
+                System.out.println("Başarıyla kayıt olma işlemi tamamlandı!");
+                System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + "), platformumuza hoşgeldiniz!" );
+                return kullanici.getKullaniciNumarasi();
+            } catch (SifreEslesmiyorException e) {
+                System.out.println("Yazdığınız şifreler eşleşmiyor. Lütfen şifrenizi kontrol edip yeniden deneyiniz.");
+                return -1;
+            }
         }
 
         private int menuYazdir() {
