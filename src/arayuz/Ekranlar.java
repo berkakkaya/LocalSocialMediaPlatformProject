@@ -90,10 +90,22 @@ public class Ekranlar {
         }
 
         public void calistir() {
+            int menuSecim = menuYazdir();
+            switch (menuSecim){
+                case 1: profilListesi(); break;
+                case 2: profilSayfasi(kullanici.getKullaniciNumarasi()); break;
+                case 3: gonderiPaylas(); break;
+                case 4: kullaniciBilgileriniDegistir(); break;
+                case 5: sifreDegistir(); break;
+                case 6: cikisYap(); break;
+            }
 
         }
 
         private void cikisYap() {
+            System.out.println("Çıkış yapılıyor.");
+            scanner.close();
+            System.exit(0);
 
         }
 
