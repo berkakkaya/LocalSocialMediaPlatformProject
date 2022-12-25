@@ -134,9 +134,17 @@ public class Ekranlar {
             System.out.println("[5] Şifreyi değiştir");
             System.out.println("[6] Çıkış yap");
             System.out.println();
-            System.out.print("Seçiminiz: "); //FIXME: Burada print kullanılması gerek-ok
-            int secim = this.scanner.nextInt();
-            return secim;
+
+            while (true) {
+                System.out.print("Seçiminiz: ");
+                int secim = this.scanner.nextInt();
+
+                if (secim > 6 || secim < 1) {
+                    System.out.println("Geçersiz bir giriş yaptınız, lütfen yeniden deneyiniz.");
+                } else {
+                    return secim;
+                }
+            }
         }
 
         private void profilListesi() {
