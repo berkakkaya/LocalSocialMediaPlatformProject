@@ -103,8 +103,16 @@ public class Ekranlar {
 
 
         private int menuYazdir() {
-            // TODO: Başlarken buradaki kodu silin.
-            return 0;
+            System.out.println("[1] Kişilerin profiline göz at");
+            System.out.println("[2] Kendi profiline göz at");
+            System.out.println("[3] Yeni gönderi paylaş");
+            System.out.println("[4] Kullanıcı bilgilerini değiştir");
+            System.out.println("[5] Şifreyi değiştir");
+            System.out.println("[6] Çıkış yap");
+            System.out.println();
+            System.out.print("Seçiminiz: ");
+            int menuSecim = scanner.nextInt();
+            return menuSecim;
         }
 
         private void profilListesi() {
