@@ -98,7 +98,49 @@ public class Ekranlar {
         }
 
         private void kullaniciBilgileriniDegistir() {
+            System.out.println("Kullanıcı bilgileriniz şu şekilde:");
+            System.out.println("- Ad ve soyadınız: " + kullanici.getAdSoyad());
+            System.out.println("- E-posta adresiniz: " + kullanici.getEposta());
+            System.out.println("- Kullanıcı adınız: @" + kullanici.getKullaniciAdi());
+            System.out.println();
+            System.out.println("Eskisini tutmak için boş bırakıp ENTER tuşuna basın.");
+            System.out.println();
+            String kullaniciBilgiDegistirme = scanner.nextLine();
+            if (kullaniciBilgiDegistirme.equals(" ")){
+                System.out.println("Eskisini tutmaya karar verdiniz.");
+                return;
+            }
 
+            System.out.print("Yeni ad ve soyadınız (" + kullanici.getAdSoyad() + "): ");
+            String yeniAdSoyad = scanner.nextLine();
+            System.out.println();
+            System.out.print("Yeni e-posta adresiniz (" + kullanici.getEposta() + "): ");
+            String yeniEposta = scanner.nextLine();
+            System.out.println();
+            System.out.println();
+
+            System.out.println("Yeni bilgileriniz şu şekilde olacak:");
+            System.out.println("- Ad ve soyadınız: " + yeniAdSoyad);
+            System.out.println("- E-posta adresiniz: " + yeniEposta);
+            System.out.println("- Kullanıcı adınız: @" + kullanici.getKullaniciAdi());
+
+            boolean bilgiDegistirmeGecersizGiris = true;
+
+            while(bilgiDegistirmeGecersizGiris) {
+                bilgiDegistirmeGecersizGiris = false;
+                System.out.println();
+                System.out.print("Onaylıyor musunuz? (e/h): ");
+                String bilgiDegistirmeOnaylama = scanner.nextLine();
+
+                if (bilgiDegistirmeOnaylama.equals("e") || bilgiDegistirmeOnaylama.equals("E")) {
+                    System.out.println("Yeni bilgileriniz kaydedildi.");
+                } else if (bilgiDegistirmeOnaylama.equals("h") || bilgiDegistirmeOnaylama.equals("H")) {
+                    System.out.println("Bilgiler kaydedilmedi.");
+                } else {
+                    System.out.println("Geçersiz giriş yapıldı, lütfen yeniden deneyiniz.");
+                    bilgiDegistirmeGecersizGiris = true;
+                }
+            }
         }
 
 
