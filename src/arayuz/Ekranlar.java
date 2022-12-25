@@ -62,18 +62,35 @@ public class Ekranlar {
         }
 
         private int girisYap() {
-            System.out.println();
+            String ePosta, sifre;
+            boolean sifreDogru;
+
             System.out.print("Giriş yapma seçeneği seçtiniz.");
             System.out.println();
-            System.out.print("Giriş E-postanız: ");
-            String eposta = scanner.next();//burda e-posta degiskeni yaratıp scanner ile atamamı yapacağım?
-            System.out.print("Şifreniz: ");
-            int sifre = scanner.nextInt();//burda sifre degiskeni yaratıp scanner ile atamamı yapacağım?
-            Kullanici kullanici = Veritabani.getKullanici(eposta); // FIXME: try-catch kullan
-            return kullanici.getKullaniciNumarasi();
-            //devamını tam anlayamadım, Veritabanı ve hatalar sınıfına bağlı işlemler de görünüyor, onların bitmesi mi gerekli?
 
-            return -1;
+            System.out.print("E-postanız: ");
+            ePosta = scanner.nextLine();
+
+            System.out.print("Şifreniz: ");
+            sifre = scanner.nextLine();
+
+            Kullanici kullanici = null;
+
+            try {
+                kullanici = Veritabani.getKullanici(ePosta);
+                sifreDogru = kullanici.sifre(sifre);
+
+                if (sifreDogru) {
+                    System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + "), tekrardan hoşgeldiniz!");
+                    return kullanici.getKullaniciNumarasi();
+                }
+
+                System.out.println("Kullanıcı adınızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
+                return -1;
+            } catch (KullaniciBulunamadiException e) {
+                System.out.println("Kullanıcı adınızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
+                return -1;
+            }
         }
 
         private int kayitOl() {
