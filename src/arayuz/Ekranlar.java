@@ -140,20 +140,37 @@ public class Ekranlar {
         }
 
         private void profilListesi() {
+            int sonKullaniciId = -1;
+
             System.out.println("Profil seçmek için profille eşleşen numarayı yazın. Geri dönmek için -1 yazın.");
             System.out.println();
-            for (Kullanici kullanici : Veritabani.getKullanici()) {
-                System.out.println(kullanici.getKullaniciNumarasi() + " - " + kullanici.getKullaniciAdi() + " - " + kullanici.getEposta());
-            }
-            System.out.print("Seçiminiz: ");
-            int secim = this.scanner.nextInt();
 
-            if (secim == -1) {
-                profilListesi(); //FIXME: Buradaki sorunu düzelt
-            } else {
-                profilSayfasi(secim);
+            for (Kullanici kullanici: Veritabani.getKullanici()) {
+                System.out.println("["
+                        + kullanici.getKullaniciNumarasi()
+                        + "] "
+                        + kullanici.getAdSoyad() +
+                        " (" +
+                        kullanici.getKullaniciAdi() +
+                        ")"
+                );
+
+                sonKullaniciId++;
             }
 
+            while (true) {
+                System.out.print("Seçiminiz: ");
+                int secim = this.scanner.nextInt();
+
+                if (secim == -1) {
+                   return;
+                } else if (secim > sonKullaniciId) {
+                    System.out.println("Lütfen seçimizini kontrol edip yeniden deneyiniz.");
+                } else {
+                    profilSayfasi(secim);
+                    return;
+                }
+            }
         }
 
         private void profilSayfasi(int kullaniciNumarasi) {
