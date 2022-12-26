@@ -61,7 +61,7 @@ public class Ekranlar {
                 kullaniciBulundu = false;
             }
 
-            if (kullaniciBulundu == true){
+            if (kullaniciBulundu){
                 System.out.println("Platformda aynı e-postaya sahip bir kullanıcı var. Lütfen e-postanızı kontrol edip yeniden deneyiniz.");
                 return -1;
             }
