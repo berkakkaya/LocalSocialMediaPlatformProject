@@ -109,8 +109,6 @@ public class Ekranlar {
                         break;
                     case 4:
                         kullaniciBilgileriniDegistir();
-                        System.out.println("Menüye yönlendiriliyorsunuz.");
-                        System.out.println();
                         break;
                     case 5:
                         sifreDegistir();
