@@ -102,9 +102,7 @@ public class Ekranlar {
                         profilListesi();
                         break;
                     case 2:
-                        profilSayfasi(kullanici.getKullaniciNumarasi());
-                        System.out.println("Menüye yönlendiriliyorsunuz.");
-                        System.out.println();
+                        profilSayfasi(-1);
                         break;
                     case 3:
                         gonderiPaylas();
