@@ -214,9 +214,17 @@ public class Ekranlar {
             System.out.println("[5] Şifreyi değiştir");
             System.out.println("[6] Çıkış yap");
             System.out.println();
-            System.out.print("Seçiminiz: ");
-            int menuSecim = scanner.nextInt();
-            return menuSecim;
+
+            while (true) {
+                System.out.print("Seçiminiz: ");
+                int menuSecim = scanner.nextInt();
+
+                if (menuSecim < 1 || menuSecim > 6) {
+                    System.out.println("Geçersiz giriş yaptınız, lütfen yeniden deneyiniz.");
+                } else {
+                    return menuSecim;
+                }
+            }
         }
 
         private void profilListesi() {
