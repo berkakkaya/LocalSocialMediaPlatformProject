@@ -223,39 +223,42 @@ public class Ekranlar {
 
         }
 
-        private void profilSayfasi(int kullaniciNumarasi) throws GonderiBulunamadiException {
+        private void profilSayfasi(int kullaniciNumarasi) throws GonderiBulunamadiException, KullaniciBulunamadiException {
 
             ArrayList<Gonderi> gonderiler = null;
-            if (kullaniciNumarasi != -1) {
+            if (kullaniciNumarasi == -1) {
                 gonderiler = Veritabani.getGonderi(kullanici);
+            }else{
+                Kullanici digerKullanici = Veritabani.getKullanici(kullaniciNumarasi);
+                gonderiler = Veritabani.getGonderi(digerKullanici);
             }
 
 
             final int toplamGonderiSayisi = gonderiler.size();
-            int suAnkiGonderiNumaramasi = 1;
+            int suAnkiGonderiNumarasi = 1;
             Gonderi anlikGonderi;
 
             while (true) {
                 System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + ")");
                 System.out.println();
 
-                System.out.println(toplamGonderiSayisi + " gönderiden " + suAnkiGonderiNumaramasi + ". gönderi");
+                System.out.println(toplamGonderiSayisi + " gönderiden " + suAnkiGonderiNumarasi + ". gönderi");
                 System.out.println();
 
-                anlikGonderi = gonderiler.get(suAnkiGonderiNumaramasi - 1);
+                anlikGonderi = gonderiler.get(suAnkiGonderiNumarasi - 1);
 
                 anlikGonderi.yazdir();
 
                 boolean oncekiGonderiButonuAktif, sonrakiGonderiButonuAktif;
 
-                if (suAnkiGonderiNumaramasi != 1) {
+                if (suAnkiGonderiNumarasi != 1) {
                     System.out.println("Önceki gönderi: [j]");
                     oncekiGonderiButonuAktif = true;
                 } else {
                     oncekiGonderiButonuAktif = false;
                 }
 
-                if (suAnkiGonderiNumaramasi != toplamGonderiSayisi) {
+                if (suAnkiGonderiNumarasi != toplamGonderiSayisi) {
                     System.out.println("Sonraki gönderi: [k]");
                     sonrakiGonderiButonuAktif = true;
                 } else {
@@ -295,11 +298,11 @@ public class Ekranlar {
                 }
 
                 if (sonrakiGonderiButonuAktif && secim.equals("k")) {
-                    suAnkiGonderiNumaramasi++;
+                    suAnkiGonderiNumarasi++;
                 }
 
                 if (oncekiGonderiButonuAktif && secim.equals("j")) {
-                    suAnkiGonderiNumaramasi--;
+                    suAnkiGonderiNumarasi--;
                 }
             }
 
