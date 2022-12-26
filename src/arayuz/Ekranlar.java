@@ -150,8 +150,26 @@ public class Ekranlar {
         }
 
         private int menuYazdir() {
-            // TODO: Başlarken buradaki kodu silin.
-            return 0;
+            int secim;
+
+            System.out.println("Platforma hoşgeldiniz!");
+            System.out.println("Lütfen üye girişi yapınız veya kayıt olunuz.");
+            System.out.println();
+            System.out.println("[1] Giriş Yap");
+            System.out.println("[2] Kayıt Ol");
+            System.out.println("[3] Uygulamadan Çık");
+            System.out.println();
+
+            while (true) {
+                System.out.print("Seçiminiz: ");
+                secim = this.scanner.nextInt();
+
+                if (secim < 1 || secim > 3) {
+                    System.out.println("Geçersiz giriş yaptınız, lütfen yeniden deneyiniz.");
+                } else {
+                    return secim;
+                }
+            }
         }
     }
 
