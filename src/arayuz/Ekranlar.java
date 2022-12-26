@@ -20,16 +20,17 @@ public class Ekranlar {
             scanner = new Scanner(System.in);
         }
 
-        public void calistir() {   //giriş yapma, kayıt olma olayları ele alacak
-            boolean cikisYap = false;
-            int secim = menuYazdir();
+        public void calistir() {
             int kullaniciId;
             GirisSonrasi girisSonrasi;
             Kullanici kullanici;
 
-            do {
+            int secim = menuYazdir();
+
+            while (true) {
                 if (secim == 1) { // Giriş yap
                     kullaniciId = girisYap();
+
                     if (kullaniciId != -1) {
                         try {
                             kullanici = Veritabani.getKullanici(kullaniciId);
@@ -39,9 +40,11 @@ public class Ekranlar {
 
                         girisSonrasi = new GirisSonrasi(kullanici);
                         girisSonrasi.calistir();
+                        return;
                     }
                 } else if (secim == 2) { // Kayıt ol
                     kullaniciId = kayitOl();
+
                     if (kullaniciId != -1) {
                         try {
                             kullanici = Veritabani.getKullanici(kullaniciId);
@@ -51,29 +54,25 @@ public class Ekranlar {
 
                         girisSonrasi = new GirisSonrasi(kullanici);
                         girisSonrasi.calistir();
+                        return;
                     }
-                } else if (secim == 3) { // Uygulamadan çık
-                    cikisYap = true;
-                } else {
-                    System.out.println("Lütfen seçeneklerdeki rakamlardan birini girin.");
+                } else { // Uygulamadan çık
+                    this.cikisYap();
+                    return;
                 }
-            } while (cikisYap);
-
-            this.cikisYap();
+            }
         }
 
         private void cikisYap() {
-            System.out.println("Çıkış yapılıyor.");
             scanner.close();
             System.exit(0);
-
         }
 
         private int girisYap() {
             String ePosta, sifre;
             boolean sifreDogru;
 
-            System.out.print("Giriş yapma seçeneği seçtiniz.");
+            System.out.println("Giriş yapma seçeneği seçtiniz.");
             System.out.println();
 
             System.out.print("E-postanız: ");
@@ -163,6 +162,7 @@ public class Ekranlar {
             while (true) {
                 System.out.print("Seçiminiz: ");
                 secim = this.scanner.nextInt();
+                this.scanner.nextLine(); // sonrasında string alırken sorun çıkarmaması için
 
                 if (secim < 1 || secim > 3) {
                     System.out.println("Geçersiz giriş yaptınız, lütfen yeniden deneyiniz.");
@@ -293,6 +293,7 @@ public class Ekranlar {
             while (true) {
                 System.out.print("Seçiminiz: ");
                 int menuSecim = scanner.nextInt();
+                this.scanner.nextLine(); // sonrasında string alırken sorun çıkarmaması için
 
                 if (menuSecim < 1 || menuSecim > 6) {
                     System.out.println("Geçersiz giriş yaptınız, lütfen yeniden deneyiniz.");
@@ -324,6 +325,7 @@ public class Ekranlar {
             while (true) {
                 System.out.print("Seçiminiz: ");
                 int secim = this.scanner.nextInt();
+                this.scanner.nextLine(); // sonrasında string alırken sorun çıkarmaması için
 
                 if (secim == -1) {
                     return;
