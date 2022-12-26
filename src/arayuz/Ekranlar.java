@@ -93,36 +93,21 @@ public class Ekranlar {
             this.scanner = new Scanner(System.in);
         }
 
-        public void calistir() throws GonderiBulunamadiException {
-            boolean menuDongusu = true;
-            while (menuDongusu) {
+        public void calistir() {
+            while (true) {
                 int menuSecim = menuYazdir();
                 switch (menuSecim) {
-                    case 1:
-                        profilListesi();
-                        break;
-                    case 2:
-                        profilSayfasi(-1);
-                        break;
-                    case 3:
-                        gonderiPaylas();
-                        break;
-                    case 4:
-                        kullaniciBilgileriniDegistir();
-                        break;
-                    case 5:
-                        sifreDegistir();
-                        System.out.println("Menüye yönlendiriliyorsunuz.");
-                        System.out.println();
-                        break;
-                    case 6:
-                        System.out.println();
+                    case 1 -> profilListesi();
+                    case 2 -> profilSayfasi(-1);
+                    case 3 -> gonderiPaylas();
+                    case 4 -> kullaniciBilgileriniDegistir();
+                    case 5 -> sifreDegistir();
+                    case 6 -> {
                         cikisYap();
-                        menuDongusu = false;
-                        break;
+                        return;
+                    }
                 }
             }
-
         }
 
         private void cikisYap() {
