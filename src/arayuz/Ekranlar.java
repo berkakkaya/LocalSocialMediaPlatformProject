@@ -93,15 +93,42 @@ public class Ekranlar {
             this.scanner = new Scanner(System.in);
         }
 
-        public void calistir() {
-            int menuSecim = menuYazdir();
-            switch (menuSecim){
-                case 1: profilListesi(); break;
-                case 2: profilSayfasi(kullanici.getKullaniciNumarasi()); break;
-                case 3: gonderiPaylas(); break;
-                case 4: kullaniciBilgileriniDegistir(); break;
-                case 5: sifreDegistir(); break;
-                case 6: cikisYap(); break;
+        public void calistir() throws GonderiBulunamadiException {
+            boolean menuDongusu = true;
+            while (menuDongusu) {
+                int menuSecim = menuYazdir();
+                switch (menuSecim) {
+                    case 1:
+                        profilListesi();
+                        System.out.println("Menüye yönlendiriliyorsunuz.");
+                        System.out.println();
+                        break;
+                    case 2:
+                        profilSayfasi(kullanici.getKullaniciNumarasi());
+                        System.out.println("Menüye yönlendiriliyorsunuz.");
+                        System.out.println();
+                        break;
+                    case 3:
+                        gonderiPaylas();
+                        System.out.println("Menüye yönlendiriliyorsunuz.");
+                        System.out.println();
+                        break;
+                    case 4:
+                        kullaniciBilgileriniDegistir();
+                        System.out.println("Menüye yönlendiriliyorsunuz.");
+                        System.out.println();
+                        break;
+                    case 5:
+                        sifreDegistir();
+                        System.out.println("Menüye yönlendiriliyorsunuz.");
+                        System.out.println();
+                        break;
+                    case 6:
+                        System.out.println();
+                        cikisYap();
+                        menuDongusu = false;
+                        break;
+                }
             }
 
         }
