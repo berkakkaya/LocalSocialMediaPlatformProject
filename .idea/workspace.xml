@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd863b22-4e7c-4683-9f2b-a0c548d6339f" name="Changes" comment="">
+    <list default="true" id="16bbb243-5372-4df7-bd59-8fe2c339b427" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/arayuz/Ekranlar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/arayuz/Ekranlar.java" afterDir="false" />
     </list>
@@ -40,7 +40,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2IGbIdCPFn0knR0BUCEmeZsL7Qp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -85,7 +85,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dd863b22-4e7c-4683-9f2b-a0c548d6339f" name="Changes" comment="" />
+      <changelist id="16bbb243-5372-4df7-bd59-8fe2c339b427" name="Changes" comment="" />
       <created>1669810791089</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -106,6 +106,7 @@
       <workItem from="1671701074526" duration="58000" />
       <workItem from="1671824458979" duration="11493000" />
       <workItem from="1671885858726" duration="1849000" />
+      <workItem from="1672061606393" duration="557000" />
     </task>
     <servers />
   </component>
