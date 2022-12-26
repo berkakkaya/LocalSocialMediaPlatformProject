@@ -100,8 +100,6 @@ public class Ekranlar {
                 switch (menuSecim) {
                     case 1:
                         profilListesi();
-                        System.out.println("Menüye yönlendiriliyorsunuz.");
-                        System.out.println();
                         break;
                     case 2:
                         profilSayfasi(kullanici.getKullaniciNumarasi());
