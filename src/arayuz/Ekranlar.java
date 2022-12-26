@@ -224,7 +224,11 @@ public class Ekranlar {
         }
 
         private void profilSayfasi(int kullaniciNumarasi) throws GonderiBulunamadiException {
-            ArrayList<Gonderi> gonderiler = Veritabani.getGonderi(kullanici);
+
+            ArrayList<Gonderi> gonderiler = null;
+            if (kullaniciNumarasi != -1) {
+                gonderiler = Veritabani.getGonderi(kullanici);
+            }
 
 
             final int toplamGonderiSayisi = gonderiler.size();
@@ -251,7 +255,7 @@ public class Ekranlar {
                     oncekiGonderiButonuAktif = false;
                 }
 
-                if (suAnkiGonderiNumaramasi != toplamGonderiSayisi){
+                if (suAnkiGonderiNumaramasi != toplamGonderiSayisi) {
                     System.out.println("Sonraki gönderi: [k]");
                     sonrakiGonderiButonuAktif = true;
                 } else {
@@ -268,7 +272,7 @@ public class Ekranlar {
                 System.out.println("Profil görünümünden çık: [q]");
 
                 System.out.print("İlgili harfi tuşlayıp [ENTER] tuşuna basınız: ");
-                String profilSecim = scanner.nextLine();
+                String secim = scanner.nextLine();
 
                 /*
                 * Önceki gönderi: [j]
@@ -278,23 +282,23 @@ public class Ekranlar {
                 Profil görünümünden çık: [q]
                 * */
 
-                if (profilSecim.equals("q")){
+                if (secim.equals("q")) {
                     return;
                 }
 
-                if (profilSecim.equals("r")){
+                if (secim.equals("r")) {
                     anlikGonderi.yenidenPaylas(kullanici);
                 }
 
-                if(profilSecim.equals("e")){
+                if (secim.equals("e")) {
                     anlikGonderi.begen(kullanici);
                 }
 
-                if(sonrakiGonderiButonuAktif && profilSecim.equals("k")) {
+                if (sonrakiGonderiButonuAktif && secim.equals("k")) {
                     suAnkiGonderiNumaramasi++;
                 }
 
-                if(oncekiGonderiButonuAktif && profilSecim.equals("j")) {
+                if (oncekiGonderiButonuAktif && secim.equals("j")) {
                     suAnkiGonderiNumaramasi--;
                 }
             }

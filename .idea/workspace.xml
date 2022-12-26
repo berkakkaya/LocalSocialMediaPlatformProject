@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd863b22-4e7c-4683-9f2b-a0c548d6339f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="16bbb243-5372-4df7-bd59-8fe2c339b427" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/arayuz/Ekranlar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/arayuz/Ekranlar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
