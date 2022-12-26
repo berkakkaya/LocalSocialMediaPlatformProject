@@ -8,8 +8,6 @@ import hatalar.YanlisSifreException;
 import kullanici.Kullanici;
 import veritabani.Veritabani;
 
-import veritabani.Veritabani;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -65,9 +63,9 @@ public class Ekranlar {
         }
 
         private void cikisYap() {
-                System.out.println("Çıkış yapılıyor.");
-                scanner.close();
-                System.exit(0);
+            System.out.println("Çıkış yapılıyor.");
+            scanner.close();
+            System.exit(0);
 
         }
 
@@ -128,7 +126,7 @@ public class Ekranlar {
                 kullaniciBulundu = false;
             }
 
-            if (kullaniciBulundu){
+            if (kullaniciBulundu) {
                 System.out.println("Platformda aynı e-postaya sahip bir kullanıcı var. Lütfen e-postanızı kontrol edip yeniden deneyiniz.");
                 return -1;
             }
@@ -136,7 +134,7 @@ public class Ekranlar {
                 Kullanici kullanici = new Kullanici(adSoyad, ePosta, kullaniciAdi, sifre, sifreYeniden);
                 Veritabani.addKullanici(kullanici);
                 System.out.println("Başarıyla kayıt olma işlemi tamamlandı!");
-                System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + "), platformumuza hoşgeldiniz!" );
+                System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + "), platformumuza hoşgeldiniz!");
                 return kullanici.getKullaniciNumarasi();
             } catch (SifreEslesmiyorException e) {
                 System.out.println("Yazdığınız şifreler eşleşmiyor. Lütfen şifrenizi kontrol edip yeniden deneyiniz.");
@@ -232,7 +230,7 @@ public class Ekranlar {
 
             boolean bilgiDegistirmeGecersizGiris = true;
 
-            while(bilgiDegistirmeGecersizGiris) {
+            while (bilgiDegistirmeGecersizGiris) {
                 bilgiDegistirmeGecersizGiris = false;
                 System.out.println();
                 System.out.print("Onaylıyor musunuz? (e/h): ");
@@ -285,7 +283,7 @@ public class Ekranlar {
             System.out.println("Profil seçmek için profille eşleşen numarayı yazın. Geri dönmek için -1 yazın.");
             System.out.println();
 
-            for (Kullanici kullanici: Veritabani.getKullanici()) {
+            for (Kullanici kullanici : Veritabani.getKullanici()) {
                 System.out.println("["
                         + kullanici.getKullaniciNumarasi()
                         + "] "
@@ -303,7 +301,7 @@ public class Ekranlar {
                 int secim = this.scanner.nextInt();
 
                 if (secim == -1) {
-                   return;
+                    return;
                 } else if (secim > sonKullaniciId) {
                     System.out.println("Lütfen seçimizini kontrol edip yeniden deneyiniz.");
                 } else {
@@ -371,12 +369,12 @@ public class Ekranlar {
                 String secim = scanner.nextLine();
 
                 /*
-                * Önceki gönderi: [j]
-                * Sonraki gönderi: [k]
-                * Gönderiyi beğen: [e]
-                * Gönderiyi yeniden paylaş: [r]
-                * Profil görünümünden çık: [q]
-                * */
+                 * Önceki gönderi: [j]
+                 * Sonraki gönderi: [k]
+                 * Gönderiyi beğen: [e]
+                 * Gönderiyi yeniden paylaş: [r]
+                 * Profil görünümünden çık: [q]
+                 * */
 
                 if (secim.equals("q")) {
                     return;
