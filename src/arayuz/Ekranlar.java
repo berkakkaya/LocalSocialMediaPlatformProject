@@ -106,8 +106,6 @@ public class Ekranlar {
                         break;
                     case 3:
                         gonderiPaylas();
-                        System.out.println("Menüye yönlendiriliyorsunuz.");
-                        System.out.println();
                         break;
                     case 4:
                         kullaniciBilgileriniDegistir();
