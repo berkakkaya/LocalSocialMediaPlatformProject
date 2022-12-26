@@ -223,20 +223,23 @@ public class Ekranlar {
 
         }
 
-        private void profilSayfasi(int kullaniciNumarasi) throws GonderiBulunamadiException, KullaniciBulunamadiException {
+        private void profilSayfasi(int kullaniciNumarasi) {
+            ArrayList<Gonderi> gonderiler;
+            Gonderi anlikGonderi;
 
-            ArrayList<Gonderi> gonderiler = null;
             if (kullaniciNumarasi == -1) {
                 gonderiler = Veritabani.getGonderi(kullanici);
-            }else{
-                Kullanici digerKullanici = Veritabani.getKullanici(kullaniciNumarasi);
-                gonderiler = Veritabani.getGonderi(digerKullanici);
+            } else {
+                try {
+                    Kullanici bulunanKullanici = Veritabani.getKullanici(kullaniciNumarasi);
+                    gonderiler = Veritabani.getGonderi(bulunanKullanici);
+                } catch (KullaniciBulunamadiException e) {
+                    throw new RuntimeException(e);
+                }
             }
-
 
             final int toplamGonderiSayisi = gonderiler.size();
             int suAnkiGonderiNumarasi = 1;
-            Gonderi anlikGonderi;
 
             while (true) {
                 System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + ")");
@@ -279,10 +282,10 @@ public class Ekranlar {
 
                 /*
                 * Önceki gönderi: [j]
-                Sonraki gönderi: [k]
-                Gönderiyi beğen: [e]
-                Gönderiyi yeniden paylaş: [r]
-                Profil görünümünden çık: [q]
+                * Sonraki gönderi: [k]
+                * Gönderiyi beğen: [e]
+                * Gönderiyi yeniden paylaş: [r]
+                * Profil görünümünden çık: [q]
                 * */
 
                 if (secim.equals("q")) {
@@ -305,8 +308,6 @@ public class Ekranlar {
                     suAnkiGonderiNumarasi--;
                 }
             }
-
-
         }
 
         private void sifreDegistir() {
