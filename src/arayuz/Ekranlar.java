@@ -104,21 +104,28 @@ public class Ekranlar {
         private int kayitOl() {
             System.out.println("Kayıt olma seçeneğini seçtiniz.");
             System.out.println();
+
             System.out.print("Adınız ve soyadınız: ");
             String adSoyad = scanner.nextLine();
+
             System.out.print("E-posta adresiniz: ");
             String ePosta = scanner.nextLine();
             System.out.println();
+
             System.out.println("Kendinize bir kullanıcı adı seçiniz. Bu ad seçildikten sonra bir daha değiştirilemez.");
             System.out.print("Kullanıcı adınız: @");
             String kullaniciAdi = scanner.nextLine();
+            kullaniciAdi = "@" + kullaniciAdi;
             System.out.println();
+
             System.out.print("Şifreniz: ");
             String sifre = scanner.nextLine();
+
             System.out.print("Şifreniz (tekrardan): ");
             String sifreYeniden = scanner.nextLine();
 
             boolean kullaniciBulundu;
+
             try {
                 Veritabani.getKullanici(ePosta);
                 kullaniciBulundu = true;
