@@ -2,7 +2,6 @@ package arayuz;
 
 import gonderi.Gonderi;
 import gonderi.NormalGonderi;
-import hatalar.GonderiBulunamadiException;
 import hatalar.KullaniciBulunamadiException;
 import hatalar.SifreEslesmiyorException;
 import kullanici.Kullanici;
