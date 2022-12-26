@@ -260,7 +260,7 @@ public class Ekranlar {
                     sonrakiGonderiButonuAktif = false;
                 }
 
-                if (anlikGonderi.checkBegen(this.kullanici)) {
+                if (!anlikGonderi.checkBegen(this.kullanici)) {
                     System.out.println("Gönderiyi beğen: [e]");
                 } else {
                     System.out.println("Gönderiyi beğenmekten vazgeç: [e]");
