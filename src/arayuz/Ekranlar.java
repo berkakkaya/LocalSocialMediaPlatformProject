@@ -126,10 +126,8 @@ public class Ekranlar {
         }
 
         private void cikisYap() {
-            System.out.println("Çıkış yapılıyor.");
             scanner.close();
             System.exit(0);
-
         }
 
         private void gonderiPaylas() {
