@@ -118,7 +118,6 @@ public class Ekranlar {
             System.out.println("Kendinize bir kullanıcı adı seçiniz. Bu ad seçildikten sonra bir daha değiştirilemez.");
             System.out.print("Kullanıcı adınız: @");
             String kullaniciAdi = scanner.nextLine();
-            kullaniciAdi = "@" + kullaniciAdi;
             System.out.println();
 
             System.out.print("Şifreniz: ");
