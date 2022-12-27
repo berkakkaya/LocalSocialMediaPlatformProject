@@ -444,6 +444,7 @@ public class Ekranlar {
 
             try {
                 kullanici.sifre(eskiSifre, yeniSifre, yeniSifreTekrardan);
+                System.out.println("Şifreniz başarıyla değiştirildi.");
             } catch (YanlisSifreException e) {
                 System.out.println("Eski şifrenizi yanlış girdiniz. Lütfen kontrol edip yeniden deneyiniz.");
             } catch (SifreEslesmiyorException e) {
