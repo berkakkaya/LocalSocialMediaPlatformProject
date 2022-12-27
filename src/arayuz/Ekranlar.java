@@ -154,9 +154,6 @@ public class Ekranlar {
         private int menuYazdir() {
             int secim;
 
-            System.out.println("Platforma hoşgeldiniz!");
-            System.out.println("Lütfen üye girişi yapınız veya kayıt olunuz.");
-            System.out.println();
             System.out.println("[1] Giriş Yap");
             System.out.println("[2] Kayıt Ol");
             System.out.println("[3] Uygulamadan Çık");
