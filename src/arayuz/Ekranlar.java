@@ -339,25 +339,32 @@ public class Ekranlar {
         }
 
         private void profilSayfasi(int kullaniciNumarasi) {
-            ArrayList<Gonderi> gonderiler;
+            final ArrayList<Gonderi> gonderiler;
+            final Kullanici secilenKullanici;
             Gonderi anlikGonderi;
 
             if (kullaniciNumarasi == -1) {
-                gonderiler = Veritabani.getGonderi(kullanici);
+                secilenKullanici = this.kullanici;
             } else {
                 try {
-                    Kullanici bulunanKullanici = Veritabani.getKullanici(kullaniciNumarasi);
-                    gonderiler = Veritabani.getGonderi(bulunanKullanici);
+                    secilenKullanici = Veritabani.getKullanici(kullaniciNumarasi);
                 } catch (KullaniciBulunamadiException e) {
                     throw new RuntimeException(e);
                 }
             }
 
+            gonderiler = Veritabani.getGonderi(secilenKullanici);
+
             final int toplamGonderiSayisi = gonderiler.size();
+            if (toplamGonderiSayisi == 0) {
+                System.out.println("Bu kullanıcının henüz bir gönderisi yok, üzgünüz.");
+                return;
+            }
+
             int suAnkiGonderiNumarasi = 1;
 
             while (true) {
-                System.out.println(kullanici.getAdSoyad() + " (" + kullanici.getKullaniciAdi() + ")");
+                System.out.println(secilenKullanici.getAdSoyad() + " (" + secilenKullanici.getKullaniciAdi() + ")");
                 System.out.println();
 
                 System.out.println(toplamGonderiSayisi + " gönderiden " + suAnkiGonderiNumarasi + ". gönderi");
