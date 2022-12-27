@@ -13,7 +13,7 @@ public class YenidenPaylasilmisGonderi extends Gonderi {
 
     public void yazdir() {
         System.out.println("[Yeniden Paylaşım]");
-        System.out.println(super.getPaylasan().getAdSoyad() + " (" + super.getPaylasan().getKullaniciAdi() + ")");
+        System.out.println(kaynakGonderi.getPaylasan().getAdSoyad() + " (" + kaynakGonderi.getPaylasan().getKullaniciAdi() + ")");
         System.out.print("\n");
         System.out.println(kaynakGonderi.getIcerik());
         System.out.print("\n");
