@@ -21,13 +21,17 @@ public class Ekranlar {
         }
 
         public void calistir() {
+            System.out.println("Platforma hoşgeldiniz!");
+            System.out.println("Lütfen üye girişi yapınız veya kayıt olunuz.");
+            System.out.println();
+
             int kullaniciId;
             GirisSonrasi girisSonrasi;
             Kullanici kullanici;
 
-            int secim = menuYazdir();
-
             while (true) {
+                int secim = menuYazdir();
+
                 if (secim == 1) { // Giriş yap
                     kullaniciId = girisYap();
 
