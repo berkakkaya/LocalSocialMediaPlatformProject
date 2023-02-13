@@ -87,7 +87,7 @@ public class Ekranlar {
 
             Kullanici kullanici = null;
 
-            try {
+            try { // Aynı e-postaya sahip kullanıcı var mı diye kontrol et ve şifresini kontrol et
                 kullanici = Veritabani.getKullanici(ePosta);
                 sifreDogru = kullanici.sifre(sifre);
 
@@ -96,10 +96,11 @@ public class Ekranlar {
                     return kullanici.getKullaniciNumarasi();
                 }
 
-                System.out.println("Kullanıcı adınızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
+                // Üstte return olduğundan dolayı else kullanmadık
+                System.out.println("E-postanızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
                 return -1;
             } catch (KullaniciBulunamadiException e) {
-                System.out.println("Kullanıcı adınızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
+                System.out.println("E-postanızı veya şifrenizi yanlış girdiniz, lütfen yeniden deneyiniz.");
                 return -1;
             }
         }
@@ -329,7 +330,7 @@ public class Ekranlar {
 
                 if (secim == -1) {
                     return;
-                } else if (secim > sonKullaniciId) {
+                } else if (secim > sonKullaniciId || secim < -1) {
                     System.out.println("Lütfen seçimizini kontrol edip yeniden deneyiniz.");
                 } else {
                     profilSayfasi(secim);

@@ -6,7 +6,7 @@ import veritabani.Veritabani;
 import java.util.ArrayList;
 
 public class NormalGonderi extends Gonderi {
-    private final ArrayList<Integer> begenenler;
+    private final ArrayList<Integer> begenenler; // Integer: sarmayalan sınıf
     private final String icerik;
     private int yenidenPaylasmaSayisi;
 
@@ -20,6 +20,8 @@ public class NormalGonderi extends Gonderi {
     @Override
     public void begen(Kullanici kullanici) {
         final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
+
+        // Kullanıcı gönderiyi beğenmiş mi diye kontrol et
         final int index = this.begenenler.indexOf(kullaniciNumarasi);
 
         if (index == -1) {
@@ -33,6 +35,9 @@ public class NormalGonderi extends Gonderi {
     @Override
     public boolean checkBegen(Kullanici kullanici) {
         final int kullaniciNumarasi = kullanici.getKullaniciNumarasi();
+
+        // Kullanıcı gönderiyi beğenmiş mi diye kontrol et
+        // -1 ise listede yok
         final int index = this.begenenler.indexOf(kullaniciNumarasi);
 
         // Aşağıda eşit değildir operatörü üzerinden boolean elde ediliyor
